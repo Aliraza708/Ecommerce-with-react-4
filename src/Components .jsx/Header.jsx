@@ -15,6 +15,7 @@ const Header = () => {
   console.log(usershow)
   const popoverContent = (
     <div>
+
       {console.log(usershow.userInfo.email)}
       <p>Email:{usershow.userInfo.email}</p>
     </div>
