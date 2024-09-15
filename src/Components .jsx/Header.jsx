@@ -12,12 +12,13 @@ const Header = () => {
   const { cart } = useContext(CartContext);
   const { setTheme, theme } = useContext(Theme)
   const {usershow} = useContext(UserContext)
-  console.log(usershow)
+const image=usershow.userInfo.photoUrl
   const popoverContent = (
     <div>
 
       {console.log(usershow.userInfo.email)}
       <p>Email:{usershow.userInfo.email}</p>
+      
     </div>
   );
  function check(){
@@ -54,17 +55,20 @@ const Header = () => {
             <MoonOutlined onClick={check} className="text-white text-2xl cursor-pointer" title="Theme" />
           ) : ( <SunOutlined className='text-2xl  cursor-pointer' onClick={check1} />)
         }
-           <Popover content={popoverContent}  trigger={["hover", "click"]}>
-      <Link to={"/SignIn"}>
-        <Avatar
-          shape="circle"
-          className="text-white text-2xl cursor-pointer"
-          
-          size={40}
-          icon={<UserOutlined />}
-        />
-      </Link>
-    </Popover>
+           {usershow.isLogin ?
+           <Popover content={popoverContent}  trigger={["hover", "click"]}> <Avatar size={40} src={image} /> </Popover> :
+           <Link to={"/SignIn"}>
+           <Avatar
+              shape="/circle"
+              className="text-white text-2xl cursor-pointer"
+              size={40}
+              icon={<UserOutlined />}
+            />
+            
+          </Link>
+           }
+      
+
          
         </div>
       </nav>

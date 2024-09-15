@@ -22,6 +22,7 @@ provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     signInWithPopup(auth, provider)
   .then((result) => {
      console.log(result)
+     navigation("/")
   }).catch((error) => {
   console.log(error)
   }); 

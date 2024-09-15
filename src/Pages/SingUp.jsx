@@ -61,6 +61,7 @@ const SignUp = () => {
         signInWithPopup(auth, provider)
       .then((result) => {
          console.log(result)
+         navigation("/")
       }).catch((error) => {
       console.log(error)
       }); 
